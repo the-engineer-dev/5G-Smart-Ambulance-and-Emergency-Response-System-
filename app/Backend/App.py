@@ -14,7 +14,9 @@ medical_kb = {
     "chot": "अगर खून बह रहा है तो साफ कपड़े से दबाकर रखें। घाव को साफ पानी से धोएं। हिलाएं-डुलाएं नहीं। एम्बुलेंस आ रही है।",
     "dard": "दर्द वाली जगह को स्थिर रखें। गहरी सांस लें। मैं आपके वाइटल्स मॉनिटर कर रहा हूँ।"
 }
-
+@app.route("/")
+def home():
+    return "🚑 Smart Ambulance System API is LIVE!"
 @app.route("/api/ai-chat", methods=["POST"])
 def ai_chat():
     data = request.json
