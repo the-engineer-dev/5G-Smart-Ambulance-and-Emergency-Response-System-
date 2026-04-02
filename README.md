@@ -136,6 +136,16 @@ Step 6: SAVE       →  Survival probability maximized ✅
 
 > 🎯 **Goal: 40% reduction in emergency mortality rates** through speed optimization and data-driven hospital readiness.
 
+
+## 👥 Team
+
+| Name | Role | GitHub | LinkedIn |
+|---|---|---|---|
+| RAJ SONI | Full Stack | [@rajsoni1819](https://github.com/rajsoni1819) | [Raj Soni](https://www.linkedin.com/in/raj-soni-4428013a9) |
+| ARYAN SINGH | PPT + CODE | [@aryansingh1501](https://github.com/aryansingh1501) | [Aryan Singh](https://www.linkedin.com/in/aryan-singh-1aa628320) |
+| DEV | GitHub Repo Creator | [@the-engineer-dev](https://github.com/the-engineer-dev) | [Dev Srivastava](https://www.linkedin.com/in/dev-srivastava-950417397) |
+| SOMYA YADAV | Deployment | [@somya2212-hub](https://github.com/somya2212-hub) | [Somya Yadav](https://www.linkedin.com/in/somya-yadav-4aa6383a3) |
+
 ---
 
 ## 🚀 Getting Started
