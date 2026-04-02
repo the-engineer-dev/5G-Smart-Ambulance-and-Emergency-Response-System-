@@ -41,7 +41,7 @@ USER SOS → AI DISPATCH → OPTIMAL ROUTE → GREEN CORRIDOR → HOSPITAL READY
 
 ### 📱 One-Touch Emergency Trigger
 - **Auto-Location Detection** — High-precision GPS pinpoints the user instantly
-- **Condition Tagging** — Simple icons for Heart Attack, Accident, or Stroke to pre-configure AI response
+- **Cond ition Tagging** — Simple icons for Heart Attack, Accident, or Stroke to pre-configure AI response
 - **Live Tracking** — Real-time ambulance distance and ETA visualization
 - **Direct SOS Link** — One-tap call to the nearest dispatch center
 
