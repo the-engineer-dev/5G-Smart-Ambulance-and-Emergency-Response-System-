@@ -9,6 +9,7 @@ import axios from "axios";
 // Standard Icon Fix
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
+const API = "https://fiveg-smart-ambulance-and-emergency-eb8b.onrender.com";
 let DefaultIcon = L.icon({ iconUrl: markerIcon, shadowUrl: markerShadow, iconSize: [25, 41], iconAnchor: [12, 41] });
 L.Marker.prototype.options.icon = DefaultIcon;
 
@@ -91,7 +92,7 @@ function MapComponent() {
     setTextInput("");
     setIsTyping(true);
     try {
-      const res = await axios.post("http://localhost:5000/api/ai-chat", { text: val });
+      const res = await axios.post(`${API}/api/ai-chat`, { text: val });
       setIsTyping(false);
       const u = new SpeechSynthesisUtterance(res.data.reply);
       window.speechSynthesis.speak(u);
@@ -249,9 +250,16 @@ function MapComponent() {
       ) : (
         <div style={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
           <div className="orb" onClick={async () => {
-             const res = await axios.post("http://localhost:5000/api/emergency", { lat: userLocation[0], lng: userLocation[1] });
-             localStorage.setItem("active_mission", JSON.stringify(res.data));
-             openTab("#mission");
+             const res = await axios.post(
+  "https://fiveg-smart-ambulance-and-emergency-eb8b.onrender.com/api/emergency",
+  {
+    lat: userLocation[0],
+    lng: userLocation[1]
+  }
+);
+
+localStorage.setItem("active_mission", JSON.stringify(res.data));
+openTab("#mission");
           }} />
           <h1 style={{ marginTop: 30, letterSpacing: 15, fontSize: 24, textShadow: '0 0 20px #00ffcc' }}>LIFEROUTE</h1>
         </div>
