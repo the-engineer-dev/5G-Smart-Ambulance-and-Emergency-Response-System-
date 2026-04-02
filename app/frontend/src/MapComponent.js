@@ -4,216 +4,183 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-routing-machine";
 import axios from "axios";
 
-// 🔧 FIX: Leaflet default icon paths
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
-let DefaultIcon = L.icon({ iconUrl: markerIcon, shadowUrl: markerShadow, iconSize: [25, 41], iconAnchor: [12, 41] });
-L.Marker.prototype.options.icon = DefaultIcon;
-
-const ambIcon = L.icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/1048/1048315.png",
-    iconSize: [40, 40], iconAnchor: [20, 20]
-});
-
-// 🌍 TRANSLATIONS
-const translations = {
-  "en-IN": {
-    head: "LIFEROUTE",
-    btn: "🚨 INITIALIZE DISPATCH",
-    eta: "ETA",
-    call: "CALL HOSPITAL",
-    talk: "TALK TO AI",
-    arrived: "ARRIVED",
-    langPrompt: "Please choose your language. English or Hindi?",
-    namePrompt: "What is your name?",
-    traffic: "HEAVY TRAFFIC DETECTED"
-  },
-  "hi-IN": {
-    head: "लाइफ़रूट",
-    btn: "🚨 डिस्पैच शुरू करें",
-    eta: "पहुंचने का समय",
-    call: "कॉल करें",
-    talk: "AI से बात करें",
-    arrived: "पहुंच गए",
-    langPrompt: "अपनी भाषा चुनें। अंग्रेज़ी या हिंदी?",
-    namePrompt: "आपका नाम क्या है?",
-    traffic: "भारी ट्रैफ़िक मिला है"
-  }
+const HUD_UI = {
+  "en-IN": { head: "TACTICAL HUD", eta: "ARRIVAL", surv: "SURVIVAL RATE", video: "DOCTOR LINK" },
+  "hi-IN": { head: "टैक्टिकल HUD", eta: "आगमन", surv: "जीवन दर", video: "डॉक्टर लिंक" }
 };
 
 function MapComponent() {
+  // Check if we are in the Mission Tab or Main Tab
+  const isMissionTab = window.location.hash === "#mission";
+
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
-  const routingRef = useRef(null);
-  const ambMarkerRef = useRef(null);
+  const ambMarker = useRef(null);
+  const localVideoRef = useRef(null);
 
   const [userLocation, setUserLocation] = useState([28.6139, 77.2090]);
-  const [hospital, setHospital] = useState(null);
-  const [showMap, setShowMap] = useState(false);
+  const [missionData, setMissionData] = useState(null);
   const [isListening, setIsListening] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const [lang, setLang] = useState("en-IN");
-  const [chatLog, setChatLog] = useState([]);
-  const [showChat, setShowChat] = useState(false);
-  const [chatStep, setChatStep] = useState("LANG"); // LANG -> NAME -> EMERGENCY
-  const [etaText, setEtaText] = useState("SYNCING...");
+  const [eta, setEta] = useState("---");
+  const [messages, setMessages] = useState([]);
+  const [mode, setMode] = useState("MAP");
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((pos) => {
-      setUserLocation([pos.coords.latitude, pos.coords.longitude]);
-    });
-  }, []);
-
-  // Initialize Map safely
-  useEffect(() => {
-    if (showMap && !mapInstance.current && mapRef.current) {
-      mapInstance.current = L.map(mapRef.current, { zoomControl: false, attributionControl: false }).setView(userLocation, 15);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(mapInstance.current);
-      L.marker(userLocation).addTo(mapInstance.current).bindPopup("YOU");
+    navigator.geolocation.getCurrentPosition(p => setUserLocation([p.coords.latitude, p.coords.longitude]));
+    
+    if (isMissionTab) {
+      const saved = JSON.parse(localStorage.getItem("active_mission"));
+      if (saved) {
+        setMissionData(saved);
+        setTimeout(() => initMissionMap(saved), 500);
+      }
     }
-  }, [showMap, userLocation]);
+  }, [isMissionTab]);
 
-  const speak = (text, l = lang) => {
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = l;
-    utter.rate = 0.9;
-    window.speechSynthesis.speak(utter);
-  };
-
-  const handleRequest = async () => {
-    setShowMap(true);
-    try {
-      const res = await axios.post("http://localhost:5000/api/emergency", { lat: userLocation[0], lng: userLocation[1] });
-      setHospital(res.data.hospital);
-      initRouting(res.data.hospital);
-    } catch (err) { alert("Backend Error"); }
-  };
-
-  const initRouting = (hosp) => {
-    if (routingRef.current) mapInstance.current.removeControl(routingRef.current);
-    routingRef.current = L.Routing.control({
-      waypoints: [L.latLng(hosp.lat, hosp.lng), L.latLng(...userLocation)],
-      lineOptions: {
-        styles: [
-          { color: "#ff4d4d", weight: 10, opacity: 0.3, dashArray: "5, 10" }, // Traffic
-          { color: "#00ffcc", weight: 6, opacity: 0.9 }
-        ]
-      },
-      createMarker: () => null,
-      show: false
+  // --- 🗺️ MISSION PAGE LOGIC ---
+  const initMissionMap = (data) => {
+    if (mapInstance.current) return;
+    mapInstance.current = L.map(mapRef.current, { zoomControl: false, attributionControl: false }).setView(userLocation, 16);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(mapInstance.current);
+    
+    // Start Route
+    const route = L.Routing.control({
+      waypoints: [L.latLng(data.hospital.lat, data.hospital.lng), L.latLng(...userLocation)],
+      lineOptions: { styles: [{ color: "#00ffcc", weight: 6, opacity: 0.8 }] },
+      createMarker: () => null, show: false
     }).addTo(mapInstance.current);
 
-    routingRef.current.on("routesfound", (e) => {
-      animateAmbulance(e.routes[0].coordinates);
+    route.on("routesfound", (e) => {
+      const path = e.routes[0].coordinates;
+      ambMarker.current = L.marker([path[0].lat, path[0].lng], { 
+        icon: L.icon({ iconUrl: "https://cdn-icons-png.flaticon.com/512/1048/1048315.png", iconSize: [40, 40] }) 
+      }).addTo(mapInstance.current);
+      
+      let i = 0;
+      const move = setInterval(() => {
+        if (i >= path.length - 1) { clearInterval(move); setEta("0m"); return; }
+        i += 2;
+        ambMarker.current.setLatLng([path[i].lat, path[i].lng]);
+        setEta(`${Math.ceil(((path.length-i)/path.length)*5)}m`);
+        mapInstance.current.panTo([path[i].lat, path[i].lng]);
+      }, 200);
     });
+
+    speak(`Mission link established. Survival probability is ${data.survival} percent. Please state your name.`, "en-IN");
   };
 
-  const animateAmbulance = (path) => {
-    let i = 0;
-    if (ambMarkerRef.current) mapInstance.current.removeLayer(ambMarkerRef.current);
-    ambMarkerRef.current = L.marker([path[0].lat, path[0].lng], { icon: ambIcon }).addTo(mapInstance.current);
-
-    const timer = setInterval(() => {
-      if (i >= path.length - 1) {
-        clearInterval(timer);
-        setEtaText(translations[lang].arrived);
-        speak(lang === "hi-IN" ? "मदद पहुंच गई है" : "Help has arrived.");
-        return;
-      }
-      i++;
-      ambMarkerRef.current.setLatLng([path[i].lat, path[i].lng]);
-      setEtaText(`${Math.ceil(((path.length - i) / path.length) * 5)} MIN`);
-    }, 150);
+  // --- 🎙️ VOICE ENGINE ---
+  const speak = (text, targetLang) => {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = targetLang; u.rate = 0.95;
+    setMessages(prev => [...prev, { role: "ai", text }]);
+    u.onstart = () => setIsSpeaking(true);
+    u.onend = () => setIsSpeaking(false);
+    window.speechSynthesis.speak(u);
   };
 
-  // --- Voice AI Logic ---
-  const handleMic = () => {
-    setShowChat(true);
-    if (chatStep === "LANG") {
-      const p = translations["en-IN"].langPrompt;
-      setChatLog([{ s: "bot", t: p }]);
-      speak(p, "en-IN");
-    }
-    startListening();
-  };
-
-  const startListening = () => {
+  const handleMicTap = () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SpeechRecognition) return;
     const rec = new SpeechRecognition();
-    rec.lang = chatStep === "LANG" ? "en-IN" : lang;
-    
     rec.onstart = () => setIsListening(true);
     rec.onresult = async (e) => {
-      const text = e.results[0][0].transcript.toLowerCase();
-      setChatLog(prev => [...prev, { s: "user", t: text }]);
-
-      if (chatStep === "LANG") {
-        const isHindi = text.includes("hindi") || text.includes("हिंदी");
-        const newLang = isHindi ? "hi-IN" : "en-IN";
-        setLang(newLang);
-        setChatStep("NAME");
-        const reply = translations[newLang].namePrompt;
-        setChatLog(prev => [...prev, { s: "bot", t: reply }]);
-        speak(reply, newLang);
-      } else {
-        const res = await axios.post("http://localhost:5000/api/ai-chat", { text, lang });
-        setChatLog(prev => [...prev, { s: "bot", t: res.data.reply }]);
-        speak(res.data.reply, lang);
-      }
+      const text = e.results[0][0].transcript;
+      setMessages(prev => [...prev, { role: "user", text }]);
+      const res = await axios.post("http://localhost:5000/api/ai-chat", { text });
+      setLang(res.data.lang);
+      speak(res.data.reply, res.data.lang);
     };
     rec.onend = () => setIsListening(false);
     rec.start();
   };
 
+  // --- 🚨 MAIN TAB: INITIALIZE ---
+  const requestEmergency = async () => {
+    try {
+      const res = await axios.post("http://localhost:5000/api/emergency", { lat: userLocation[0], lng: userLocation[1] });
+      // Save data for the next tab
+      localStorage.setItem("active_mission", JSON.stringify(res.data));
+      // Open new tab
+      window.open(window.location.origin + window.location.pathname + "#mission", "_blank");
+    } catch (err) { alert("Link Error"); }
+  };
+
   return (
-    <div style={{ height: "100vh", display: "flex", flexDirection: "column", background: "#050505", color: "white", fontFamily: "sans-serif", overflow: "hidden" }}>
+    <div style={{ height: "100vh", background: "#000", color: "#fff", fontFamily: "'Orbitron', sans-serif", overflow: "hidden" }}>
       <style>{`
-        .map-3d { transform: rotateX(25deg) translateY(-40px); perspective: 1000px; transition: 0.5s; }
-        .glass { background: rgba(10,10,10,0.8); backdrop-filter: blur(20px); border-top: 2px solid #00ffcc; border-radius: 40px 40px 0 0; padding: 25px; }
-        .bot-msg { color: #00ffcc; padding: 10px; border-radius: 10px; background: rgba(0,255,204,0.1); margin: 5px 0; }
-        .user-msg { color: white; text-align: right; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; margin: 5px 0; }
+        .neural-orb { width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, #ff0000 0%, #330000 100%); cursor: pointer; transition: 0.5s; box-shadow: 0 0 30px #ff0000; border: 3px solid rgba(255,255,255,0.2); }
+        .orb-active { background: radial-gradient(circle, #00ffcc 0%, #002222 100%); box-shadow: 0 0 50px #00ffcc; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        .hud-glass { background: rgba(0,0,0,0.8); backdrop-filter: blur(25px); border: 1px solid rgba(0,255,204,0.3); padding: 15px; border-radius: 15px; position: absolute; z-index: 100; }
+        .surv-val { color: #00ffcc; font-size: 28px; font-weight: 900; text-shadow: 0 0 10px #00ffcc; }
       `}</style>
 
-      <header style={{ padding: "20px", textAlign: "center" }}>
-        <h1 style={{ letterSpacing: "10px", color: "#00ffcc", margin: 0 }}>{translations[lang].head}</h1>
-      </header>
-
-      <div style={{ flex: 1, position: "relative" }}>
-        {!showMap ? (
-          <div style={{ height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <button onClick={handleRequest} style={{ padding: "20px 40px", background: "red", border: "none", color: "white", fontWeight: "bold", borderRadius: "15px", cursor: "pointer" }}>{translations[lang].btn}</button>
-          </div>
-        ) : (
-          <div ref={mapRef} className="map-3d" style={{ height: "115%", width: "100%" }} />
-        )}
-      </div>
-
-      {showChat && (
-        <div style={{ position: "absolute", bottom: "40%", left: "5%", right: "5%", background: "rgba(5,5,5,0.98)", border: "1px solid #333", height: "300px", zIndex: 1000, padding: "20px", borderRadius: "30px", overflowY: "auto", display: "flex", flexDirection: "column" }}>
-          <div style={{ flex: 1 }}>
-            {chatLog.map((c, i) => <div key={i} className={c.s === "bot" ? "bot-msg" : "user-msg"}>{c.t}</div>)}
-          </div>
-          <button onClick={handleMic} style={{ background: isListening ? "red" : "#00ffcc", color: "#000", padding: "12px", border: "none", borderRadius: "15px", fontWeight: "bold" }}>
-             {isListening ? "LISTENING..." : translations[lang].talk}
-          </button>
+      {/* --- PAGE 1: STANDBY --- */}
+      {!isMissionTab ? (
+        <div style={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+          <div className="neural-orb" onClick={requestEmergency} />
+          <h1 style={{ marginTop: 40, letterSpacing: 15 }}>LIFEROUTE</h1>
+          <p style={{ opacity: 0.4, letterSpacing: 5 }}>INITIALIZE EMERGENCY LINK</p>
         </div>
-      )}
-
-      {hospital && (
-        <div className="glass" style={{ height: "35%", zIndex: 1001 }}>
-          <div style={{ textAlign: "center" }}>
-            <h2 style={{ margin: "0" }}>{hospital.name}</h2>
-            <p style={{ color: "#ff4d4d", fontSize: "12px" }}>{translations[lang].traffic}</p>
-            <div style={{ display: "flex", justifyContent: "space-around", marginTop: "20px" }}>
-                <div><small>{translations[lang].eta}</small><br/><b>{etaText}</b></div>
-                <div><small>SIGNAL</small><br/><b style={{ color: "#00ffcc" }}>SECURE</b></div>
+      ) : (
+        /* --- PAGE 2: MISSION HUD --- */
+        <>
+          <div ref={mapRef} style={{ height: "100%", width: "100%", filter: 'brightness(0.5) contrast(1.2)' }} />
+          
+          {/* TOP HUD: SURVIVAL & ETA */}
+          <div className="hud-glass" style={{ top: 20, left: 20, right: 20, display: 'flex', justifyContent: 'space-between' }}>
+            <div>
+                <small style={{ color: "#00ffcc" }}>{HUD_UI[lang].surv}</small>
+                <div className="surv-val">{missionData?.survival}%</div>
+            </div>
+            <div style={{ textAlign: "right" }}>
+                <small style={{ color: "#00ffcc" }}>{HUD_UI[lang].eta}</small>
+                <div style={{ fontSize: 24 }}>{eta}</div>
             </div>
           </div>
-          <div style={{ display: "flex", justifyContent: "center", gap: "50px", marginTop: "20px" }}>
-            <button onClick={() => window.location.href=`tel:${hospital.phone}`} style={{ width: 65, height: 65, borderRadius: "50%", background: "#2ecc71", border: "none", fontSize: "25px" }}>📞</button>
-            <button onClick={handleMic} style={{ width: 65, height: 65, borderRadius: "50%", background: "#222", border: "1px solid #00ffcc", color: "white", fontSize: "25px" }}>🎤</button>
+
+          {/* TRANSCRIPT HUD */}
+          <div className="hud-glass" style={{ top: 120, left: 20, width: "250px", height: "30vh", overflowY: "auto", fontSize: "10px" }}>
+             {messages.map((m, i) => (
+                 <div key={i} style={{ marginBottom: 8, color: m.role === 'ai' ? '#00ffcc' : '#fff' }}>
+                    {m.role === 'ai' ? '🤖 ' : '➤ '}{m.text.toUpperCase()}
+                 </div>
+             ))}
           </div>
-        </div>
+
+          {/* INTERACTIVE ORB */}
+          <div style={{ position: "absolute", bottom: "6%", left: "50%", transform: "translateX(-50%)", textAlign: "center", zIndex: 1001 }}>
+            <div 
+              className={`neural-orb orb-active ${isListening ? 'listening' : ''}`} 
+              style={{ width: 100, height: 100, background: isListening ? 'red' : '' }}
+              onClick={handleMicTap} 
+            />
+            <div style={{ marginTop: 10, fontSize: 10, color: "#00ffcc" }}>NEURAL LINK ACTIVE</div>
+          </div>
+
+          {missionData && (
+            <div className="hud-glass" style={{ bottom: "22%", left: 20, width: "280px" }}>
+               <small style={{ color: "#00ffcc" }}>NEAREST: {missionData.hospital.name}</small>
+               <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+                  <button onClick={() => setMode("VIDEO")} style={{ flex: 1, background: "#ff4d4d", border: "none", padding: "12px", borderRadius: "10px", fontWeight: "bold", cursor: "pointer", color: "#fff" }}>📹 {HUD_UI[lang].video}</button>
+                  <button onClick={() => window.location.href=`tel:${missionData.hospital.phone}`} style={{ width: "50px", background: "#00ffcc", border: "none", borderRadius: "10px", cursor: "pointer" }}>📞</button>
+               </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* --- VIDEO OVERLAY (REUSED) --- */}
+      {mode === "VIDEO" && (
+          <div style={{ position: 'fixed', inset: 0, background: '#000', zIndex: 9999, display: 'flex', flexDirection: 'column', padding: 20 }}>
+             <div style={{ flex: 1, border: '2px solid #00ffcc', borderRadius: 20, overflow: 'hidden' }}>
+                <img src="https://img.freepik.com/free-photo/doctor-offering-medical-advice_23-2149329020.jpg" style={{ width: "100%", height: "100%", objectFit: "cover" }} alt="Doc"/>
+             </div>
+             <button onClick={() => setMode("MAP")} style={{ background: 'red', color: '#fff', padding: 20, marginTop: 10, border: 'none', borderRadius: 10 }}>END LINK</button>
+          </div>
       )}
     </div>
   );
