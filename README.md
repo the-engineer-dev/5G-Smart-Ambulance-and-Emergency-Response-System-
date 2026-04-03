@@ -167,8 +167,7 @@ Hospitals receive patient data **before** the ambulance arrives, enabling:
 | **AI / ML** | Python, NumPy, Scikit-Learn, PyTorch |
 | **Database** | MongoDB, Firebase Realtime Database |
 | **Network** | 5G NR (New Radio), Network Slicing, MQTT |
-
-
+| **Deployment** | Gunicorn (Production Server) |
 ---
 
 ## 🔄 The Digital Lifeline Flow
@@ -196,6 +195,134 @@ Step 6: SAVE       →  Survival probability maximized ✅
 > 🎯 **Goal: 40% reduction in emergency mortality rates** through speed optimization and data-driven hospital readiness.
 
 
+## 🚀 Getting Started
+
+### Prerequisites
+
+```bash
+
+node >= 18.x
+python >= 3.9
+npm >= 9.x
+
+```
+
+### Installation
+
+# Clone the repository
+git clone https://github.com/your-username/5g-smart-ambulance.git
+cd 5g-smart-ambulance
+
+# Backend Setup (Flask + Python)
+cd Backend
+pip install -r requirements.txt
+python app.py
+# Server runs on http://localhost:5000
+
+# Frontend Setup (React)
+cd ../frontend
+npm install
+npm start
+# App runs on http://localhost:3000
+
+
+### Environment Variables
+
+```env
+FLASK_ENV=development
+PORT=5000
+```
+
+---
+
+
+## 📁 Project Structure
+
+```
+5G-Smart-Ambulance-and-Emergency-Response-System/
+│
+├── Backend/                       # Flask API Server
+│   ├── app.py                     # Main Flask application
+│   ├── requirements.txt           # Python dependencies
+│   └── (extensions.py, config.py) # Future modules
+│
+├── frontend/                      # React Frontend Application
+│   ├── public/
+│   │   ├── cesium/               # Cesium 3D mapping assets
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
+│   │   └── robots.txt
+│   ├── src/
+│   │   ├── App.js                # Main React component
+│   │   ├── App.css               # Styling
+│   │   ├── MapComponent.js       # Cesium/Leaflet map integration
+│   │   ├── cesiumConfig.js       # Cesium ion configuration
+│   │   ├── index.js              # React entry point
+│   │   ├── index.css             # Global styles
+│   │   └── reportWebVitals.js    # Performance metrics
+│   ├── package.json              # Node dependencies
+│   ├── package-lock.json
+│   └── .gitignore
+│
+├── assets/                        # README images & diagrams
+│   ├── screenshots/
+│   └── diagrams/
+│
+├── app/                           # (Legacy/Additional modules)
+├── .gitignore
+├── package-lock.json
+├── package.json
+└── README.md
+```
+
+---
+
+## 🗺️ Roadmap
+
+# phase 1 ✅ (Current)
+->Flask backend with REST API
+
+->React frontend with Cesium integration
+
+->Bilingual AI first-aid assistant
+
+->Real-time hospital discovery (OpenStreetMap)
+
+->Emergency dispatch endpoint
+
+->Multi-variable survival formula (age + injury type + hospital readiness)
+
+# Phase 2 🔄 (In Progress)
+->MIMIC-III ML survival prediction integration
+
+->Real-time ambulance GPS tracking
+
+->WebSocket for live patient updates
+
+->Hospital dashboard (zero-second handover)
+
+# Phase 3 📋 (Planned)
+->Real 5G network slicing integration
+
+->Smart traffic signal integration
+
+->Wearable device API (ECG/SpO₂)
+
+->Wearable device live data pipeline
+
+->Integration with India's 112 Emergency Services API
+
+->Multi-city pilot deployment
+
+->Offline fallback mode for 4G / low-connectivity zones
+
+->Support for 8+ Indian languages
+
+---
+
 ## 👥 Team
 
 | Name | Role | GitHub | LinkedIn |
@@ -207,4 +334,8 @@ Step 6: SAVE       →  Survival probability maximized ✅
 
 ---
 
-## 🚀 Getting Started
+## 📬 Contact
+**Team AiSorous**
+📧 thisisdev@gmail.com
+
+🔗 [Devployment-link](https://5-g-smart-ambulance-and-emergency-r-one.vercel.app/) · [Demo Video](#) · [Presentation Slides](c:\Users\Loq\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\4A173D4ACBFC4DDD830EF20685F30DE1A251ED76\transfers\2026-14\5G Smart Emergency Response System - Google Slides (1).pptx)
