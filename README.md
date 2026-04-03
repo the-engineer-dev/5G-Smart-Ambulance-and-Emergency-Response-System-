@@ -12,6 +12,24 @@
 
 ---
 
+## 📌 Table of Contents
+
+- [The Problem](#-the-problem)
+- [The Solution](#-the-solution)
+- [Demo & Screenshots](#-demo--screenshots)
+- [Core Features](#-core-features)
+- [AI Survival Engine](#-ai-survival-prediction-engine)
+- [System Architecture](#-system-architecture)
+- [Tech Stack](#-technology-stack)
+- [Digital Lifeline Flow](#-the-digital-lifeline-flow)
+- [Projected Impact](#-projected-impact)
+- [Getting Started](#-getting-started)
+- [Project Structure](#-project-structure)
+- [Roadmap](#-roadmap)
+- [Team](#-team)
+
+---
+
 ## 🧠 The Problem
 
 **60% of trauma deaths occur within the first hour** — the "Golden Hour."
