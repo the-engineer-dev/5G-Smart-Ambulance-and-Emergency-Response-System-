@@ -217,13 +217,13 @@ cd 5g-smart-ambulance
 cd Backend
 pip install -r requirements.txt
 python app.py
-# Server runs on http://localhost:5000
+**Server runs on** http://localhost:5000
 
-# Frontend Setup (React)
+**Frontend Setup** (React)
 cd ../frontend
 npm install
 npm start
-# App runs on http://localhost:3000
+**App runs on** http://localhost:3000
 
 
 ### Environment Variables
@@ -282,7 +282,7 @@ PORT=5000
 
 ## 🗺️ Roadmap
 
-# phase 1 ✅ (Current)
+### phase 1 ✅ (Current)
 ->Flask backend with REST API
 
 ->React frontend with Cesium integration
@@ -304,7 +304,7 @@ PORT=5000
 
 ->Hospital dashboard (zero-second handover)
 
-# Phase 3 📋 (Planned)
+### Phase 3 📋 (Planned)
 ->Real 5G network slicing integration
 
 ->Smart traffic signal integration
