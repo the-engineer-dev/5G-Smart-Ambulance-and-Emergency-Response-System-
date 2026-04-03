@@ -57,38 +57,79 @@ USER SOS → AI DISPATCH → OPTIMAL ROUTE → GREEN CORRIDOR → HOSPITAL READY
 ## ⚙️ Core Features
 
 ### 📱 One-Touch Emergency Trigger
-- **Auto-Location Detection** — High-precision GPS pinpoints the user instantly
-- **Cond ition Tagging** — Simple icons for Heart Attack, Accident, or Stroke to pre-configure AI response
-- **Live Tracking** — Real-time ambulance distance and ETA visualization
-- **Direct SOS Link** — One-tap call to the nearest dispatch center
+
+A unified interface that instantly activates the entire emergency response chain.
+
+**Key Capabilities:**
+
+* **Auto-Location Detection** — Instantly pinpoints the user using high-precision GPS
+* **Condition Tagging** — Simple icons for Heart Attack, Accident, or Stroke to pre-configure AI response
+* **Live Tracking** — Real-time ambulance distance and ETA visualization for the user
+* **Direct SOS Link** — One-tap call to the nearest dispatch center
+
+---
 
 ### 🧬 AI Survival Prediction Engine
+
 Our model doesn't just find routes — it evaluates **survival probability** using:
 
-$$P_{survival} = 1 - \left( \frac{T_{ETA}}{T_{critical}} \times S_{vitals} \right)$$
+```math
+P_{survival} = 1 - \left( \frac{T_{ETA}}{T_{critical}} \times S_{vitals} \right)
+```
 
 The system recommends the hospital where the patient has the **highest chance of survival**, not simply the closest one.
 
-**AI Prediction Matrix:**
+#### 📊 AI Prediction Matrix
 
-| Parameter | Source | AI Weightage | Impact |
-|---|---|---|---|
-| Patient Vitals (Heart Rate, SpO2) | Wearables / App | 40% | Critical (Baseline) |
-| Time to Arrival (ETA) | Google Maps + AI Route | 35% | High (Time-dependent) |
-| Hospital Specialist Availability | Live Dashboards | 15% | Medium (Readiness) |
-| Traffic Signal Synchronization | 5G Infrastructure | 10% | Operational Speed |
+| Parameter                         | Source               | AI Weightage | Impact                |
+| --------------------------------- | -------------------- | ------------ | --------------------- |
+| Patient Vitals (Heart Rate, SpO2) | Wearables / App      | 40%          | Critical (Baseline)   |
+| Time to Arrival (ETA)             | Maps + AI Routing    | 35%          | High (Time-dependent) |
+| Hospital Specialist Availability  | Live Dashboards      | 15%          | Medium (Readiness)    |
+| Traffic Signal Synchronization    | Smart Infrastructure | 10%          | Operational Speed     |
+
+---
 
 ### 🚦 Smart Traffic Pre-Emption
-- **Dynamic Green Corridors** — Traffic lights detect approaching ambulances via 5G and switch to green **500m in advance**
-- **Path Clearance Alerts** — Smart vehicles receive dashboard alerts to pull over
-- **Automatic Reset** — Signals return to normal flow the moment the ambulance clears the intersection
+
+* **Dynamic Green Corridors** — Traffic lights switch to green in advance for ambulances
+* **Path Clearance Alerts** — Nearby vehicles receive alerts to clear the route
+* **Automatic Reset** — Signals return to normal after ambulance passes
+
+---
+
+### 🚑 Government Ambulance Dispatch System
+
+* **Automated Ambulance Assignment** — Assigns nearest available government ambulance
+* **Geo-Optimized Routing** — Selects fastest route based on real-time traffic
+* **Public Infrastructure Integration** — Connects with emergency response networks
+
+---
+
+### 🧠 Smart Clinical Reasoning Agent
+
+* **Multimodal Interaction** — Supports both voice and text input
+* **Symptom-Based Diagnosis** — Predicts possible diseases using AI
+* **Real-Time Health Guidance** — Provides immediate actionable insights
+
+---
+
+### 🎥 Live Patient Monitoring & Consultation
+
+* **Real-Time Telemedicine Interface** — Enables video communication with doctors
+* **Live Vitals Streaming** — Patient condition shared continuously
+* **Doctor Preparedness** — Enables faster medical decision-making
+
+---
 
 ### 🏥 Hospital-Side Preparedness (Zero-Second Handover)
+
 Hospitals receive patient data **before** the ambulance arrives, enabling:
-- ✅ Live streaming of patient vitals
-- ✅ Predicted surgery requirements
-- ✅ Pre-assignment of surgeons, ER beds, and blood types
-- ✅ Instant trauma alerts for specialized staff
+
+* ✅ Live streaming of patient vitals
+* ✅ Predicted surgery requirements
+* ✅ Pre-assignment of surgeons, ER beds, and blood types
+* ✅ Instant trauma alerts for specialized staff
 
 ---
 
