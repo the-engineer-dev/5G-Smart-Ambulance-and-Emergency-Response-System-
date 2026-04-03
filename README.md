@@ -338,4 +338,4 @@ PORT=5000
 **Team AiSorous**
 📧 thisisdev@gmail.com
 
-🔗 [Devployment-link](https://5-g-smart-ambulance-and-emergency-r-one.vercel.app/) · [Demo Video](#) · [Presentation Slides](c:\Users\Loq\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\4A173D4ACBFC4DDD830EF20685F30DE1A251ED76\transfers\2026-14\5G Smart Emergency Response System - Google Slides (1).pptx)
+🔗 [Devployment-link](https://5-g-smart-ambulance-and-emergency-r-one.vercel.app/) · [Demo Video](#) · [Presentation Slides](#)
