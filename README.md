@@ -162,11 +162,12 @@ Hospitals receive patient data **before** the ambulance arrives, enabling:
 
 | Layer | Technologies |
 |---|---|
-| **Frontend** | React, Flutter (React Native), Google Maps API |
+| **Frontend** | React, Flutter (React Native), leaflet |
 | **Backend** | Node.js, Express, Firebase Cloud Functions |
 | **AI / ML** | Python, NumPy, Scikit-Learn, PyTorch |
 | **Database** | MongoDB, Firebase Realtime Database |
 | **Network** | 5G NR (New Radio), Network Slicing, MQTT |
+
 
 ---
 
