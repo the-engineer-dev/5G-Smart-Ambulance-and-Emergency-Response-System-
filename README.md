@@ -230,23 +230,23 @@ npm >= 9.x
 ```
 
 ### Installation
-
-**Clone the repository**
+```bash
+# Clone the repository
 git clone https://github.com/your-username/5g-smart-ambulance.git
 cd 5g-smart-ambulance
 
-**Backend Setup (Flask + Python)**
+# Backend Setup (Flask + Python)
 cd Backend
 pip install -r requirements.txt
 python app.py
-**Server runs on** http://localhost:5000
+# Server runs on http://localhost:5000
 
-**Frontend Setup(React)**
+# Frontend Setup (React)
 cd ../frontend
 npm install
 npm start
-**App runs on** http://localhost:3000
-
+# App runs on http://localhost:3000
+```
 
 ### Environment Variables
 
