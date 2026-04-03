@@ -38,9 +38,9 @@ USER SOS → AI DISPATCH → OPTIMAL ROUTE → GREEN CORRIDOR → HOSPITAL READY
 ---
 ### 📱 App Screenshots
 
-| One-Touch SOS | Live Ambulance Tracking | Condition Tagging |
-|:---:|:---:|:---:|
-| ![One-Tap SOS Activation System](C:\Users\Loq\OneDrive\Desktop\git_new\assets\screenshots\Screenshot 2026-04-04 004302.png) | ![Live Tracking](C:\Users\Loq\OneDrive\Desktop\git_new\assets\screenshots\Screenshot 2026-04-04 004715.png) | ![Predictive Survival Analytics Engine](C:\Users\Loq\OneDrive\Desktop\git_new\assets\screenshots\Screenshot 2026-04-04 004508.png) | | ![Smart Clinical Reasoning Agent](C:\Users\Loq\OneDrive\Desktop\git_new\assets\screenshots\Screenshot 2026-04-04 004330.png) | | ![Government Ambulance Dispatch System](C:\Users\Loq\OneDrive\Desktop\git_new\assets\screenshots\Screenshot 2026-04-04 004638.png) | | ![Live Patient Monitoring & Consultation System](C:\Users\Loq\OneDrive\Desktop\git_new\assets\screenshots\Screenshot 2026-04-04 004602.png) |
+| One-Touch SOS | Live Ambulance Tracking | Condition Tagging | Smart Clinical Reasoning Agent | Government Ambulance Dispatch System | Live Patient Monitoring & Consultation System |
+|:---:|:---:|:---:|:---:|:---:|
+| ![One-Tap SOS Activation System](assets\screenshots\Screenshot 2026-04-04 004302.png) | ![Live Tracking](assets\screenshots\Screenshot 2026-04-04 004715.png) | ![Predictive Survival Analytics Engine](assets\screenshots\Screenshot 2026-04-04 004508.png) | | ![Smart Clinical Reasoning Agent](assets\screenshots\Screenshot 2026-04-04 004330.png) | | ![Government Ambulance Dispatch System](assets\screenshots\Screenshot 2026-04-04 004638.png) | | ![Live Patient Monitoring & Consultation System](assets\screenshots\Screenshot 2026-04-04 004602.png) |
 | *One tap triggers full emergency chain* | *Real-time ETA and route visualization* | *Heart Attack / Stroke / Accident tagging* |
 
 ---
