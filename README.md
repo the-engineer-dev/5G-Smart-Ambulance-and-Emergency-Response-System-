@@ -295,7 +295,7 @@ PORT=5000
 
 ->Multi-variable survival formula (age + injury type + hospital readiness)
 
-# Phase 2 🔄 (In Progress)
+**Phase 2** 🔄 (In Progress)
 ->MIMIC-III ML survival prediction integration
 
 ->Real-time ambulance GPS tracking
