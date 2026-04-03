@@ -14,19 +14,20 @@
 
 ## 📌 Table of Contents
 
-- [The Problem](#-the-problem)
-- [The Solution](#-the-solution)
-- [Demo & Screenshots](#-demo--screenshots)
-- [Core Features](#-core-features)
-- [AI Survival Engine](#-ai-survival-prediction-engine)
-- [System Architecture](#-system-architecture)
-- [Tech Stack](#-technology-stack)
-- [Digital Lifeline Flow](#-the-digital-lifeline-flow)
-- [Projected Impact](#-projected-impact)
-- [Getting Started](#-getting-started)
-- [Project Structure](#-project-structure)
-- [Roadmap](#-roadmap)
-- [Team](#-team)
+- [🧠 The Problem](#-the-problem)
+- [💡 The Solution](#-the-solution)
+- [📱 App Screenshots](#-app-screenshots)
+- [⚙️ Core Features](#️-core-features)
+- [🧬 AI Survival Prediction Engine](#-ai-survival-prediction-engine)
+- [🏗️ System Architecture](#️-system-architecture)
+- [🛠️ Technology Stack](#️-technology-stack)
+- [🔄 The Digital Lifeline Flow](#-the-digital-lifeline-flow)
+- [📊 Projected Impact](#-projected-impact)
+- [🚀 Getting Started](#-getting-started)
+- [📁 Project Structure](#-project-structure)
+- [🗺️ Roadmap](#️-roadmap)
+- [👥 Team](#-team)
+- [📬 Contact](#-contact)
 
 ---
 
@@ -42,8 +43,8 @@ In India, emergency response times average **15–20 minutes longer** than globa
 | 📡 Communication Gap | Hospitals unaware of patient condition until ambulance arrives |
 | 🏥 Zero Preparedness | Surgeons, ER beds, blood types not pre-assigned |
 | ⏱️ Delayed Dispatch | No AI-assisted routing to the *optimal* hospital |
-|🔗 Lack of Real-Time Coordination | No proper communication between ambulance, traffic systems, and hospitals
-|🤖 Lack of Intelligent Decision Support | Absence of AI for route optimization, hospital selection, and survival prediction
+| 🔗 Lack of Real-Time Coordination | No proper communication between ambulance, traffic systems, and hospitals |
+| 🤖 Lack of Intelligent Decision Support | Absence of AI for route optimization, hospital selection, and survival prediction |
 
 
 ---
@@ -180,12 +181,13 @@ Hospitals receive patient data **before** the ambulance arrives, enabling:
 
 | Layer | Technologies |
 |---|---|
-| **Frontend** | React, Flutter (React Native), leaflet |
-| **Backend** | Node.js, Express, Firebase Cloud Functions |
-| **AI / ML** | Python, NumPy, Scikit-Learn, PyTorch |
-| **Database** | MongoDB, Firebase Realtime Database |
-| **Network** | 5G NR (New Radio), Network Slicing, MQTT |
-| **Deployment** | Gunicorn (Production Server) |
+| **Frontend** | React, Leaflet / Cesium |
+| **Backend** | Flask (Python), REST APIs |
+| **AI / ML** | Python, NumPy, Scikit-Learn |
+| **Data Source** | OpenStreetMap (Overpass API) |
+| **Deployment** | Gunicorn |
+| **Languages** | Python, JavaScript |
+
 ---
 
 ## 🔄 The Digital Lifeline Flow
@@ -212,6 +214,8 @@ Step 6: SAVE       →  Survival probability maximized ✅
 
 > 🎯 **Goal: 40% reduction in emergency mortality rates** through speed optimization and data-driven hospital readiness.
 
+
+---
 
 ## 🚀 Getting Started
 
