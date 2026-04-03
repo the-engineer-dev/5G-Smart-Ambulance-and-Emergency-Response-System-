@@ -6,7 +6,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Hackathon-Devcation%20Delhi%202026-cyan?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Track-Health--Tech%20%2F%20Open%20Innovation-teal?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Team-Devcation-blueviolet?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Team-AiSorous-blueviolet?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Status-Prototype-orange?style=for-the-badge" />
 </p>
 
