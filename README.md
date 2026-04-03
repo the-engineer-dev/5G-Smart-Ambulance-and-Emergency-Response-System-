@@ -34,17 +34,23 @@ A **unified 5G + AI ecosystem** that orchestrates every second between an emerge
 ```
 USER SOS → AI DISPATCH → OPTIMAL ROUTE → GREEN CORRIDOR → HOSPITAL READY → LIFE SAVED
 ```
-
----
-### 📱 App Screenshots
-
-| One-Touch SOS | Live Ambulance Tracking | Condition Tagging | Smart Clinical Reasoning Agent | Government Ambulance Dispatch System | Live Patient Monitoring & Consultation System |
-|:---:|:---:|:---:|:---:|:---:|
-| ![One-Tap SOS Activation System](assets\screenshots\Screenshot 2026-04-04 004302.png) | ![Live Tracking](assets\screenshots\Screenshot 2026-04-04 004715.png) | ![Predictive Survival Analytics Engine](assets\screenshots\Screenshot 2026-04-04 004508.png) | | ![Smart Clinical Reasoning Agent](assets\screenshots\Screenshot 2026-04-04 004330.png) | | ![Government Ambulance Dispatch System](assets\screenshots\Screenshot 2026-04-04 004638.png) | | ![Live Patient Monitoring & Consultation System](assets\screenshots\Screenshot 2026-04-04 004602.png) |
-| *One tap triggers full emergency chain* | *Real-time ETA and route visualization* | *Heart Attack / Stroke / Accident tagging* |
-
 ---
 
+## 📱 App Screenshots
+
+| One-Tap SOS Activation System | Live Ambulance Tracking | Predictive Survival Analytics | Smart Clinical Reasoning Agent | Government Ambulance Dispatch System | Live Patient Monitoring & Consultation |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| ![SOS](assets/screenshots/Screenshot%202026-04-04%20004302.png) | ![Tracking](assets/screenshots/Screenshot%202026-04-04%20004715.png) | ![Vitals](assets/screenshots/Screenshot%202026-04-04%20004508.png) | ![AI](assets/screenshots/Screenshot%202026-04-04%20004330.png) | ![Dispatch](assets/screenshots/Screenshot%202026-04-04%20004638.png) | ![Consult](assets/screenshots/Screenshot%202026-04-04%20004602.png) |
+
+### 🚀 Features Overview
+- **One-Tap SOS Activation System** → Triggers full emergency response chain instantly  
+- **Live Ambulance Tracking** → Real-time route + ETA visualization  
+- **Predictive Survival Analytics Engine** → AI-based survival probability estimation  
+- **Smart Clinical Reasoning Agent** → Detects diseases via voice & text symptoms  
+- **Government Ambulance Dispatch System** → Assigns nearest public ambulance  
+- **Live Patient Monitoring & Consultation** → Real-time doctor communication  
+
+---
 ## ⚙️ Core Features
 
 ### 📱 One-Touch Emergency Trigger
