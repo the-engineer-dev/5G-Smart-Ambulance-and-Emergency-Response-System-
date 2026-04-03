@@ -209,17 +209,17 @@ npm >= 9.x
 
 ### Installation
 
-# Clone the repository
+**Clone the repository**
 git clone https://github.com/your-username/5g-smart-ambulance.git
 cd 5g-smart-ambulance
 
-# Backend Setup (Flask + Python)
+**Backend Setup (Flask + Python)**
 cd Backend
 pip install -r requirements.txt
 python app.py
 **Server runs on** http://localhost:5000
 
-**Frontend Setup** (React)
+**Frontend Setup(React)**
 cd ../frontend
 npm install
 npm start
@@ -283,43 +283,43 @@ PORT=5000
 ## 🗺️ Roadmap
 
 ### phase 1 ✅ (Current)
-->Flask backend with REST API
+- **Flask backend with REST API**
 
-->React frontend with Cesium integration
+- **React frontend with Cesium integration**
 
-->Bilingual AI first-aid assistant
+- **Bilingual AI first-aid assistant**
 
-->Real-time hospital discovery (OpenStreetMap)
+- **Real-time hospital discovery (OpenStreetMap)**
 
-->Emergency dispatch endpoint
+- **Emergency dispatch endpoint**
 
-->Multi-variable survival formula (age + injury type + hospital readiness)
+- **Multi-variable survival formula (age + injury type + hospital readiness)**
 
 ### Phase 2 🔄 (In Progress)
-->MIMIC-III ML survival prediction integration
+- **MIMIC-III ML survival prediction integration**
 
-->Real-time ambulance GPS tracking
+- **Real-time ambulance GPS tracking**
 
-->WebSocket for live patient updates
+- **WebSocket for live patient updates**
 
-->Hospital dashboard (zero-second handover)
+- **Hospital dashboard (zero-second handover)**
 
 ### Phase 3 📋 (Planned)
-->Real 5G network slicing integration
+- **Real 5G network slicing integration**
 
-->Smart traffic signal integration
+- **Smart traffic signal integration**
 
-->Wearable device API (ECG/SpO₂)
+- **Wearable device API (ECG/SpO₂)**
 
-->Wearable device live data pipeline
+- **Wearable device live data pipeline**
 
-->Integration with India's 112 Emergency Services API
+- **Integration with India's 112 Emergency Services API**
 
-->Multi-city pilot deployment
+- **Multi-city pilot deployment**
 
-->Offline fallback mode for 4G / low-connectivity zones
+- **Offline fallback mode for 4G / low-connectivity zones**
 
-->Support for 8+ Indian languages
+- **Support for 8+ Indian languages**
 
 ---
 
