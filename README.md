@@ -24,6 +24,9 @@ In India, emergency response times average **15–20 minutes longer** than globa
 | 📡 Communication Gap | Hospitals unaware of patient condition until ambulance arrives |
 | 🏥 Zero Preparedness | Surgeons, ER beds, blood types not pre-assigned |
 | ⏱️ Delayed Dispatch | No AI-assisted routing to the *optimal* hospital |
+|🔗 Lack of Real-Time Coordination | No proper communication between ambulance, traffic systems, and hospitals
+|🤖 Lack of Intelligent Decision Support | Absence of AI for route optimization, hospital selection, and survival prediction
+
 
 ---
 
