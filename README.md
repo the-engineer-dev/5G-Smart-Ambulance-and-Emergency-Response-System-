@@ -336,6 +336,6 @@ PORT=5000
 
 ## 📬 Contact
 **Team AiSorous**
-📧 thisisdev@gmail.com
+📧 thisisdev.eng@gmail.com
 
 🔗 [Devployment-link](https://5-g-smart-ambulance-and-emergency-r-one.vercel.app/) · [Demo Video](#) · [Presentation Slides](#)
