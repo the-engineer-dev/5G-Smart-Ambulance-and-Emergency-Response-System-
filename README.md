@@ -338,13 +338,22 @@ curl -X POST http://localhost:5000/api/ai-chat \
 
 ---
 
+## ⚡ Quick Demo
+
+🌐 Live App: https://5-g-smart-ambulance-and-emergency-r-one.vercel.app/ 
+📊 Presentation: https://docs.google.com/presentation/d/1As8jZXtsPtJLgpvav2OrUs4_o2N0b4Oq/edit?usp=sharing  
+🎥 Demo Video: (add link)
+
+> 🚑 Try: Trigger SOS → View route → Check survival prediction
+
+---
+
 ## 📬 Contact
 **Team AiSorous**
 📧 thisisdev.eng@gmail.com
 
-🔗 [Deployment-link](https://5-g-smart-ambulance-and-emergency-r-one.vercel.app/) · [Demo Video](#) · [Presentation Slides](https://docs.google.com/presentation/d/1As8jZXtsPtJLgpvav2OrUs4_o2N0b4Oq/edit?usp=sharing)
-
 ---
+
 <p align="center"> <b>Built with ❤️ to save lives at 5G speed.</b><br/> <i>Devcation Delhi 2026 | GDG IGDTUW × IITD</i><br/><br/> <img src="https://img.shields.io/badge/Made%20in-India%20🇮🇳-FF6600?style=for-the-badge"/> <img src="https://img.shields.io/badge/API-Flask-black?style=for-the-badge&logo=flask"/> <img src="https://img.shields.io/badge/Frontend-React-blue?style=for-the-badge&logo=react"/> <img src="https://img.shields.io/badge/3D%20Maps-Cesium-00E5CC?style=for-the-badge&logo=cesium"/> <img src="https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python"/> </p>
 
 ---
