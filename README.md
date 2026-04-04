@@ -360,4 +360,4 @@ PORT=5000
 **Team AiSorous**
 📧 thisisdev.eng@gmail.com
 
-🔗 [Devployment-link](https://5-g-smart-ambulance-and-emergency-r-one.vercel.app/) · [Demo Video](#) · [Presentation Slides](#)
+🔗 [Devployment-link](https://5-g-smart-ambulance-and-emergency-r-one.vercel.app/) · [Demo Video](#) · [Presentation Slides](https://docs.google.com/presentation/d/1As8jZXtsPtJLgpvav2OrUs4_o2N0b4Oq/edit?usp=drivesdk&ouid=116857527808519389259&rtpof=true&sd=true)
