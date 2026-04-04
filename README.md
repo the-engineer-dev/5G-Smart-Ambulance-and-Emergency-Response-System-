@@ -174,7 +174,7 @@ Hospitals receive patient data **before** the ambulance arrives, enabling:
 ```
 ┌──────────────┐     5G NR      ┌──────────────┐     WebSocket    ┌──────────────┐
 │  USER NODE   │ ─────────────► │  5G CLOUD    │ ───────────────► │  AI ENGINE   │
-│  Flutter App │                │  Firebase /  │                  │  Python /    │
+│  Flutter App │                │              │                  │  Python /    │
 │  React Native│                │  Node.js     │                  │  PyTorch /   │
 └──────────────┘                └──────────────┘                  │  Scikit-Learn│
                                        │                          └──────────────┘
