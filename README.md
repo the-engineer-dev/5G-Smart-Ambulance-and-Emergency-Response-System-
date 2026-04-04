@@ -283,6 +283,7 @@ curl -X POST http://localhost:5000/api/emergency \
 curl -X POST http://localhost:5000/api/ai-chat \
   -H "Content-Type: application/json" \
   -d '{"text": "chest pain"}'
+```
 
 ## 🗺️ Roadmap
 
