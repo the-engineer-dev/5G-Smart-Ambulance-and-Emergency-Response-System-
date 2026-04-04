@@ -357,7 +357,7 @@ curl -X POST http://localhost:5000/api/ai-chat \
 
 ## 📬 Contact
 **Team AiSorous**
-📧 thisisdev.eng@gmail.com
+📧 aryansingh15122006@gmail.com
 
 ---
 
