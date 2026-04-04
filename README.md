@@ -263,6 +263,8 @@ PORT=5000
 | `/api/emergency` | POST | Find nearest hospital + survival prediction |
 | `/api/ai-chat` | POST | AI first aid assistant (English/Hindi) |
 
+
+
 ### Example Requests
 
 ```bash
@@ -277,9 +279,8 @@ curl -X POST http://localhost:5000/api/emergency \
 # AI Chat
 curl -X POST http://localhost:5000/api/ai-chat \
   -H "Content-Type: application/json" \
-  -d '{"text":"chest pain"}'
-  
----
+  -d '{"text":"chest pain"}' 
+  ```
 
 ## 🗺️ Roadmap
 
