@@ -22,6 +22,7 @@
 - [🧬 AI Survival Prediction Engine](#-ai-survival-prediction-engine)
 - [🏗️ System Architecture](#️-system-architecture)
 - [🛠️ Technology Stack](#️-technology-stack)
+- [📐 Design Document](#-design-document)
 - [🔄 The Digital Lifeline Flow](#-the-digital-lifeline-flow)
 - [📊 Projected Impact](#-projected-impact)
 - [🚀 Getting Started](#-getting-started)
