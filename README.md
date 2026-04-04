@@ -67,7 +67,7 @@ USER SOS → AI DISPATCH → OPTIMAL ROUTE → GREEN CORRIDOR → HOSPITAL READY
 
 📊 Presentation: https://docs.google.com/presentation/d/1As8jZXtsPtJLgpvav2OrUs4_o2N0b4Oq/edit?usp=sharing 
  
-🎥 Demo Video: (add link)
+🎥 Demo Video: <video controls src="WhatsApp Video 2026-04-04 at 20.38.56.mp4" title="Title"></video>
 
 > 🚑 Try: Trigger SOS → View route → Check survival prediction
 
