@@ -63,14 +63,17 @@ USER SOS → AI DISPATCH → OPTIMAL ROUTE → GREEN CORRIDOR → HOSPITAL READY
 
 ## ⚡ Quick Demo
 
-🌐 Live App: https://5-g-smart-ambulance-and-emergency-r-one.vercel.app/ 
+🌐 Live App: [Open Live App] (https://5-g-smart-ambulance-and-emergency-r-one.vercel.app/)
 
-📊 Presentation: https://docs.google.com/presentation/d/1As8jZXtsPtJLgpvav2OrUs4_o2N0b4Oq/edit?usp=sharing 
+📊 Presentation: [View Presentation]🌐 Live App: [Open Live App](https://5-g-smart-ambulance-and-emergency-r-one.vercel.app/)
+
+📊 Presentation: [View Presentation](https://docs.google.com/presentation/d/1As8jZXtsPtJLgpvav2OrUs4_o2N0b4Oq/edit?usp=sharing)
  
 🎥 Demo Video: [Watch Demo Video](https://drive.google.com/file/d/1FzZcDk4cp8NTLgjqfkUYw0NTjopar5Fi/view?usp=drivesdk)
 
 > 🚑 Try: Trigger SOS → View route → Check survival prediction
-
+ 
+ 
 ---
 
 ## 📱 App Screenshots
