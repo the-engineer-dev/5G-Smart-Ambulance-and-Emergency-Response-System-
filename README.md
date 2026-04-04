@@ -232,8 +232,8 @@ npm >= 9.x
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/5g-smart-ambulance.git
-cd 5g-smart-ambulance
+git clone https://github.com/the-engineer-dev/5G-Smart-Ambulance-and-Emergency-Response-System-.git
+cd 5G-Smart-Ambulance-and-Emergency-Response-System
 
 # Backend Setup (Flask + Python)
 cd Backend
