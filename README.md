@@ -265,6 +265,9 @@ PORT=5000
 
 
 
+
+## 🧪 API Testing (For Developers)
+
 ### Example Requests
 
 ```bash
@@ -274,13 +277,12 @@ curl http://localhost:5000/
 # Emergency dispatch
 curl -X POST http://localhost:5000/api/emergency \
   -H "Content-Type: application/json" \
-  -d '{"lat":28.6139,"lng":77.2090}
+  -d '{"lat": 28.6139, "lng": 77.2090}'
 
 # AI Chat
 curl -X POST http://localhost:5000/api/ai-chat \
   -H "Content-Type: application/json" \
-  -d '{"text":"chest pain"}' 
-  ```
+  -d '{"text": "chest pain"}'
 
 ## 🗺️ Roadmap
 
