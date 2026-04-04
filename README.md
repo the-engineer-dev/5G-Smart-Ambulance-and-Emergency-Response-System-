@@ -16,6 +16,7 @@
 
 - [🧠 The Problem](#-the-problem)
 - [💡 The Solution](#-the-solution)
+- [⚡ Quick Demo](#-quick-demo)
 - [📱 App Screenshots](#-app-screenshots)
 - [⚙️ Core Features](#️-core-features)
 - [🧬 AI Survival Prediction Engine](#-ai-survival-prediction-engine)
@@ -24,7 +25,8 @@
 - [🔄 The Digital Lifeline Flow](#-the-digital-lifeline-flow)
 - [📊 Projected Impact](#-projected-impact)
 - [🚀 Getting Started](#-getting-started)
-- [📁 Project Structure](#-project-structure)
+- [🔧 API Endpoints](#-api-endpoints)
+- [🧪 API Testing](#-api-testing-for-developers)
 - [🗺️ Roadmap](#️-roadmap)
 - [👥 Team](#-team)
 - [📬 Contact](#-contact)
@@ -56,6 +58,16 @@ A **unified 5G + AI ecosystem** that orchestrates every second between an emerge
 ```
 USER SOS → AI DISPATCH → OPTIMAL ROUTE → GREEN CORRIDOR → HOSPITAL READY → LIFE SAVED
 ```
+---
+
+## ⚡ Quick Demo
+
+🌐 Live App: https://5-g-smart-ambulance-and-emergency-r-one.vercel.app/ 
+📊 Presentation: https://docs.google.com/presentation/d/1As8jZXtsPtJLgpvav2OrUs4_o2N0b4Oq/edit?usp=sharing  
+🎥 Demo Video: (add link)
+
+> 🚑 Try: Trigger SOS → View route → Check survival prediction
+
 ---
 
 ## 📱 App Screenshots
@@ -97,6 +109,7 @@ P_{survival} = 1 - \left( \frac{T_{ETA}}{T_{critical}} \times S_{vitals} \right)
 ```
 
 The system recommends the hospital where the patient has the **highest chance of survival**, not simply the closest one.
+---
 
 #### 📊 AI Prediction Matrix
 
@@ -336,16 +349,6 @@ curl -X POST http://localhost:5000/api/ai-chat \
 | ARYAN SINGH | PPT + CODE | [@aryansingh1501](https://github.com/aryansingh1501) | [Aryan Singh](https://www.linkedin.com/in/aryan-singh-1aa628320) |
 | DEV | GitHub Repo Creator | [@the-engineer-dev](https://github.com/the-engineer-dev) | [Dev Srivastava](https://www.linkedin.com/in/dev-srivastava-950417397) |
 | SOMYA YADAV | Deployment | [@somya2212-hub](https://github.com/somya2212-hub) | [Somya Yadav](https://www.linkedin.com/in/somya-yadav-4aa6383a3) |
-
----
-
-## ⚡ Quick Demo
-
-🌐 Live App: https://5-g-smart-ambulance-and-emergency-r-one.vercel.app/ 
-📊 Presentation: https://docs.google.com/presentation/d/1As8jZXtsPtJLgpvav2OrUs4_o2N0b4Oq/edit?usp=sharing  
-🎥 Demo Video: (add link)
-
-> 🚑 Try: Trigger SOS → View route → Check survival prediction
 
 ---
 
