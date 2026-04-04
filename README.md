@@ -255,7 +255,29 @@ FLASK_ENV=development
 PORT=5000
 ```
 
----
+## 🔧 API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/` | GET | Health check |
+| `/api/emergency` | POST | Find nearest hospital + survival prediction |
+| `/api/ai-chat` | POST | AI first aid assistant (English/Hindi) |
+
+### Example Requests
+
+```bash
+# Health check
+curl http://localhost:5000/
+
+# Emergency dispatch
+curl -X POST http://localhost:5000/api/emergency \
+  -H "Content-Type: application/json" \
+  -d '{"lat":28.6139,"lng":77.2090}
+
+# AI Chat
+curl -X POST http://localhost:5000/api/ai-chat \
+  -H "Content-Type: application/json" \
+  -d '{"text":"chest pain"}'
 
 
 ## 📁 Project Structure
