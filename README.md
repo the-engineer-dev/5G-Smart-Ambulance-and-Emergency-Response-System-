@@ -239,13 +239,13 @@ cd 5G-Smart-Ambulance-and-Emergency-Response-System
 cd Backend
 pip install -r requirements.txt
 python app.py
-Server runs on http://localhost:5000
+# Server runs on http://localhost:5000
 
 # Frontend Setup (React)
 cd ../frontend
 npm install
 npm start
-App runs on http://localhost:3000
+# App runs on http://localhost:3000
 ```
 
 ### Environment Variables
